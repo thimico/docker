@@ -1,10 +1,7 @@
-FROM thimico/alpine
+FROM thimico/alpine:super
 
-MAINTAINER thimico
-
-RUN apk-install supervisor \
- && apk-install mysql mysql-client \
- && mysql_install_db --user=mysql -ldata=/var/lib/mysql
+RUN apk-install mysql mysql-client
+RUN mysql_install_db --user=mysql -ldata=/var/lib/mysql
 
 WORKDIR /mysql
 
